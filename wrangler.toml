@@ -1,0 +1,7 @@
+name = "soumyadeep-design-system"
+compatibility_date = "2024-01-01"
+account_id = "c81fc212136d1035e6ae6756bf2f3ea2"
+
+[[routes]]
+pattern = "soumyadeep.in/design-system*"
+zone_id = "7f9a4e01f1e4491de98c01d87244202f"

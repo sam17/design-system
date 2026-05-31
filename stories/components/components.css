@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&display=swap');
+
+/* ─── Card Grid ─────────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ─── Side By Side ───────────────────────────────────────────── */
+.side-by-side {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.side-by-side > * {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.ds-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: box-shadow var(--duration-fast) var(--easing-standard),
+              transform var(--duration-fast) var(--easing-standard);
+}
+
+.ds-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translate(2px, 2px);
+}
+
+.ds-card--rant {
+  border-left-width: 3px;
+}
+
+.ds-card__label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.ds-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-md);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.ds-card__body {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.ds-card__meta {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+}
+
+/* ─── Button ─────────────────────────────────────────────────── */
+.ds-btn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  padding: 10px 24px;
+  cursor: pointer;
+  display: inline-block;
+  transition: box-shadow var(--duration-fast) var(--easing-standard),
+              transform var(--duration-fast) var(--easing-standard);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+.ds-btn:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translate(2px, 2px);
+}
+
+.ds-btn--primary {
+  background: rgba(131, 0, 232, 0.08);
+  color: var(--color-accent-purple);
+  border-color: var(--color-accent-purple);
+}
+
+.ds-btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  .ds-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+}
+
+/* ─── Tag ────────────────────────────────────────────────────── */
+.ds-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+/* ─── Nav ────────────────────────────────────────────────────── */
+.ds-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--space-md);
+  border-bottom: 1px solid var(--color-text);
+}
+
+.ds-nav__logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-md);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.ds-nav__links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ds-nav__link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.ds-nav__link--active {
+  color: var(--color-accent-green);
+}
+
+.ds-nav__toggle {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  background: transparent;
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+/* Mobile nav */
+.ds-nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.ds-nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .ds-nav__links {
+    display: none;
+  }
+
+  .ds-nav__links.is-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-text);
+    padding: var(--space-md);
+    gap: var(--space-sm);
+    z-index: var(--z-overlay);
+  }
+
+  .ds-nav__hamburger {
+    display: flex;
+  }
+}
+
+/* ─── Theme toggle — subtle, low-key ────────────────────────── */
+.ds-theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  font-size: 20px;
+  color: var(--color-text);
+  cursor: pointer;
+  opacity: 0.4;
+  line-height: 1;
+  transition: opacity var(--duration-fast) var(--easing-standard);
+}
+
+.ds-theme-toggle:hover {
+  opacity: 0.7;
+}
+
+/* ─── Divider ────────────────────────────────────────────────── */
+.ds-divider {
+  border: none;
+  border-top: 1px solid var(--color-text);
+  margin: var(--space-md) 0;
+}
+
+.ds-divider--accent {
+  border-top: 3px solid var(--color-accent-red);
+  border-radius: var(--radius-full);
+}
+
+.ds-divider--muted {
+  border-top: 1px solid var(--color-text-muted);
+}
+
+/* ─── Focus States (WCAG AA) ────────────────────────────────── */
+/* Applied globally — every interactive element gets a visible focus ring */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] :focus-visible {
+  outline-color: var(--color-accent-purple); /* #D4A0FF — lavender chalk */
+}
+
+/* Buttons — focus ring follows border-radius */
+.ds-btn:focus-visible {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+/* Links — underline stays, ring added */
+a:focus-visible {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Tags — pill shape */
+.ds-tag:focus-visible {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 2px;
+  border-radius: var(--radius-full);
+}
+
+/* Nav toggle — small target, needs extra padding */
+.ds-theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+  opacity: 0.8;
+}
+
+/* ─── Prose / Typography ─────────────────────────────────────── */
+.ds-prose {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-text);
+  max-width: 65ch;
+}
+
+.ds-prose h1 { font-family: var(--font-heading); font-size: var(--text-2xl); line-height: 1; margin-bottom: var(--space-sm); }
+.ds-prose h2 { font-family: var(--font-heading); font-size: var(--text-xl);  line-height: 1.1; margin-bottom: var(--space-sm); }
+.ds-prose h3 { font-family: var(--font-heading); font-size: var(--text-lg);  line-height: 1.1; margin-bottom: var(--space-sm); }
+.ds-prose h4 { font-family: var(--font-body);    font-size: var(--text-md);  font-weight: 400; margin-bottom: var(--space-xs); }
+.ds-prose p  { margin-bottom: var(--space-sm); }
+.ds-prose a  { color: var(--color-link); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .ds-prose {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&display=swap');
+
+:root {
+  /* Typography */
+  --font-heading: 'Indie Flower', cursive;   /* H1, H2, H3 */
+  --font-body:    'Patrick Hand', cursive;   /* H4+, body, labels, nav */
+  --font-primary: 'Indie Flower', cursive;   /* legacy alias → heading */
+  --font-weight-base: 400;
+
+  /* Type scale — fluid via clamp(mobile, fluid, desktop) */
+  --text-xs:   14px;                              /* floor — never smaller */
+  --text-sm:   clamp(1rem, 1.2vw + 0.5rem, 1.25rem);     /* 16→20px */
+  --text-base: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);  /* 18→24px */
+  --text-md:   clamp(1.5rem, 2.5vw + 0.5rem, 2rem);      /* 24→32px */
+  --text-lg:   clamp(1.75rem, 3vw + 0.5rem, 2.5rem);     /* 28→40px */
+  --text-xl:   clamp(2rem, 4vw + 0.75rem, 3.75rem);      /* 32→60px */
+  --text-2xl:  clamp(2rem, 4.5vw + 1rem, 4rem);          /* 32→64px */
+
+  /* Breakpoints */
+  --bp-sm:  480px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+
+  /* Colors — Light Mode */
+  --color-bg:             #FFFFFF;
+  --color-canvas:         #1E1E1E;
+  --color-text:           #000000;
+  --color-text-muted:     rgba(0, 0, 0, 0.25);
+  --color-text-dim:       rgba(0, 0, 0, 0.20);
+  --color-accent-purple:  #8300E8;
+  --color-accent-green:   #00C17D;
+  --color-accent-red:     #B70F0F;
+  --color-placeholder:    #D9D9D9;
+
+  /* Spacing */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  32px;
+  --space-lg:  64px;
+  --space-xl:  120px;
+
+  /* Stroke */
+  --stroke-default:    1px;
+  --stroke-decorative: 3px;
+
+  /* Border Radius — default: md (6px) */
+  --radius-none:    0px;
+  --radius-sm:      2px;
+  --radius-md:      6px;  /* ✅ chosen default */
+  --radius-lg:      12px;
+  --radius-full:    9999px;
+  --radius-default: var(--radius-md);
+
+  /* Shadow — hard offset, sketch feel — default: md */
+  --shadow-sm:      2px 2px 0px rgba(0,0,0,0.15);
+  --shadow-md:      3px 3px 0px rgba(0,0,0,0.20);  /* ✅ chosen default */
+  --shadow-lg:      5px 5px 0px rgba(0,0,0,0.25);
+  --shadow-default: var(--shadow-md);
+
+  /* Semantic color aliases — Light Mode */
+  --color-primary:    var(--color-accent-purple);
+  --color-success:    var(--color-accent-green);
+  --color-error:      var(--color-accent-red);
+  --color-link:       var(--color-accent-purple);
+  --color-surface:    var(--color-bg);
+  --color-on-surface: var(--color-text);
+
+  /* Motion — TBD */
+  --duration-fast:   150ms;
+  --duration-normal: 300ms;
+  --easing-standard: ease-in-out;
+
+  /* Z-index */
+  --z-base:    0;
+  --z-sticky:  10;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-tooltip: 300;
+}
+
+[data-theme="dark"] {
+  /* Dark mode — Blackboard palette */
+  --color-bg:             #1A2519;
+  --color-canvas:         #0F1A0E;
+  --color-text:           #F0EBD8;
+  --color-text-muted:     rgba(240, 235, 216, 0.35);
+  --color-text-dim:       rgba(240, 235, 216, 0.25);
+  --color-accent-purple:  #D4A0FF;
+  --color-accent-green:   #7FEBA1;
+  --color-accent-red:     #F4A0A0;
+  --color-placeholder:    rgba(240, 235, 216, 0.15);
+
+  /* Semantic aliases — Dark Mode */
+  --color-primary:    var(--color-accent-purple);
+  --color-success:    var(--color-accent-green);
+  --color-error:      var(--color-accent-red);
+  --color-link:       var(--color-accent-purple);
+  --color-surface:    var(--color-bg);
+  --color-on-surface: var(--color-text);
+
+  /* Shadow — darker on blackboard */
+  --shadow-sm: 2px 2px 0px rgba(0,0,0,0.40);
+  --shadow-md: 3px 3px 0px rgba(0,0,0,0.50);
+  --shadow-lg: 5px 5px 0px rgba(0,0,0,0.60);
+}
+
+* {
+  font-family: var(--font-primary);
+  box-sizing: border-box;
+}
